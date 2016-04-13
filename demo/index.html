@@ -23,23 +23,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <p>Make words! <button id="saybtn">Say Something</button></p>
     <p>Make lasers! <button id="laserbtn">Fire lasers</button></p>
 
-    <my-comp-team-06 author='{"name": "Lord Meowser", "image": "http://lorempixel.com/g/300/200/cats/"}' fancy>
-      <h2>Hello my-comp-team-06</h2>
-    </my-comp-team-06>
+    <my-comp-team-06></my-comp-team-06>
+    <br/>
+    <my-comp-team-06></my-comp-team-06>
+    <br/>
+    <my-comp-team-06></my-comp-team-06>
+    <br/>
+    <my-comp-team-06></my-comp-team-06>
 
     <script>
-      var seedElement = document.querySelector('my-comp-team-06');
-
+      var seedElement = document.querySelectorAll('my-comp-team-06');
       document.querySelector('#saybtn').addEventListener('click', function() {
-        alert(seedElement.sayHello('Hallo!'));
+        
+        for (var i=0; i < seedElement.length; i++) {
+          var item = seedElement[i];
+          item.progressPercent += 10 + (i*10);
+          if(item.progressPercent >= 100){
+            alert("Progress Completed!!!");
+          }
+        }
       });
 
       document.querySelector('#laserbtn').addEventListener('click', function() {
-        seedElement.fireLasers();
-      });
-
-      document.addEventListener("my-comp-team-06-lasers", function(e) {
-        console.log(e.detail.sound);
+        seedElement.progressPercent -= 10;
+        if(seedElement.progressPercent <= 0){
+          alert("Progress 0 :( !!!");
+        }
       });
 
     </script>
