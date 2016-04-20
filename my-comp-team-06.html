@@ -44,9 +44,17 @@ Example:
         height: 100%;
         width: 20%;
       }
+      .percentage-number {
+        height: var(--progress-bar-height, 20px);
+        position: absolute;
+        left: 50%;
+        top: 0;
+      }
     </style>
-    <!-- <div class="progress" style$="width:[[progressPercent]]%;"></div> -->
     <div id="progressIndicator" class="progress"></div>
+    <template is="dom-if" if="[[showPercentage]]">
+      <span class="percentage-number" >[[progressPercent]]%</span>  
+    </template>
   </template>
 
   <script>
@@ -61,6 +69,10 @@ Example:
           value: 0,
           observer: '_progressPercentChanged'
         },
+        showPercentage: {
+          type: Boolean,
+          value: false
+        }
       },
       
       _progressPercentChanged: function (newValue) {

@@ -9,39 +9,31 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>my-comp-team-06 Demo</title>
-    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
-    <link rel="import" href="../my-comp-team-06.html">
-  </head>
-  <body unresolved>
 
-    <p>An example of <code>&lt;my-comp-team-06&gt;</code>:</p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>my-comp-team-06 Demo</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="../my-comp-team-06.html">
+</head>
 
-    <p>Make words! <button id="saybtn">Say Something</button></p>
-    <p>Make lasers! <button id="laserbtn">Fire lasers</button></p>
+<body unresolved>
 
-    <my-comp-team-06></my-comp-team-06>
-    <br/>
-    <my-comp-team-06></my-comp-team-06>
-    <br/>
-    <my-comp-team-06></my-comp-team-06>
-    <br/>
-    <my-comp-team-06></my-comp-team-06>
+  <p>An example of <code>&lt;my-comp-team-06&gt;</code>:</p>
 
-    <script>
-      var seedElement = document.querySelectorAll('my-comp-team-06');
+  <p>Make words! <button id="saybtn">Say Something</button></p>
+  <p>Make lasers! <button id="laserbtn">Fire lasers</button></p>
+
+  <my-comp-team-06 show-percentage></my-comp-team-06>
+
+  <script>
+    var seedElement = document.querySelector('my-comp-team-06');
       document.querySelector('#saybtn').addEventListener('click', function() {
-        
-        for (var i=0; i < seedElement.length; i++) {
-          var item = seedElement[i];
-          item.progressPercent += 10 + (i*10);
-          if(item.progressPercent >= 100){
+          seedElement.progressPercent += 10;
+          if(seedElement.progressPercent >= 100){
             alert("Progress Completed!!!");
           }
-        }
       });
 
       document.querySelector('#laserbtn').addEventListener('click', function() {
@@ -50,8 +42,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           alert("Progress 0 :( !!!");
         }
       });
+  </script>
 
-    </script>
+</body>
 
-  </body>
 </html>
