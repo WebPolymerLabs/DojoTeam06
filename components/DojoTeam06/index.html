@@ -1,0 +1,58 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>my-comp-team-06 Demo</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="../my-comp-team-06.html">
+</head>
+
+<style is="custom-style">
+  my-comp-team-06 {
+    --my-comp-team-06-main: {
+      background-color: #Fe4;
+    };
+  }
+  
+</style>
+
+<body unresolved>
+
+  <p>An example of <code>&lt;my-comp-team-06&gt;</code>:</p>
+
+  <p>Make words! <button id="saybtn">Say Something</button></p>
+  <p>Make lasers! <button id="laserbtn">Fire lasers</button></p>
+
+  <my-comp-team-06 show-percentage></my-comp-team-06>
+
+  <script>
+    var seedElement = document.querySelector('my-comp-team-06');
+      document.querySelector('#saybtn').addEventListener('click', function() {
+          seedElement.progressPercent += 10;
+          if(seedElement.progressPercent >= 100){
+            alert("Progress Completed!!!");
+          }
+      });
+
+      document.querySelector('#laserbtn').addEventListener('click', function() {
+        seedElement.progressPercent -= 10;
+        if(seedElement.progressPercent <= 0){
+          alert("Progress 0 :( !!!");
+        }
+      });
+  </script>
+
+</body>
+
+</html>
