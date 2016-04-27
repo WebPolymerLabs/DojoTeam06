@@ -1,0 +1,29 @@
+<dom-module id="my-comp-team-06-style">
+  <template>
+    <style>
+      :host {
+        display: block;
+        box-sizing: border-box;
+        width:100%;
+        height: var(--progress-bar-height, 20px);
+        position: relative;
+        background-color: var(--progress-bar-main-bg, #CCC);
+        @apply(--my-comp-team-06-main);
+      }
+      .progress {
+        display: inline-block;
+        background-color: var(--progress-bar-progress-bg, #9c0);
+        height: 100%;
+        width: 20%;
+        @apply(--my-comp-team-06-progress);
+      }
+      .percentage-number {
+        height: var(--progress-bar-height, 20px);
+        position: absolute;
+        left: 50%;
+        top: 0;
+        @apply(--my-comp-team-06-number-text);
+      }
+    </style>
+  </template>
+</dom-module>
